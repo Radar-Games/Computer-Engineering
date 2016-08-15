@@ -52,6 +52,8 @@
   </views>
   <instances>
     <instance objName="obj_player" x="352" y="256" name="inst_2AAFEB80" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy" x="128" y="288" name="inst_936AF79E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy" x="256" y="384" name="inst_2369AF91" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
