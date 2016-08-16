@@ -27,6 +27,69 @@
             <kind>1</kind>
             <string>/// Variables
 hp = 20;
+global.shoot = 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// AI Basic
+
+if(instance_exists(obj_player)){
+    if(distance_to_point(obj_player.x, obj_player.y) &lt;= 200 &amp;&amp; distance_to_point(obj_player.x, obj_player.y) &gt;= 50 &amp;&amp; !collision_line(x, y, obj_player.x, obj_player.y, obj_wall, false, true)){
+        phy_rotation = -point_direction(x, y, obj_player.x, obj_player.y)+90;
+        x += lengthdir_x(44, -phy_rotation+90);
+        y += lengthdir_y(44, -phy_rotation+90);
+        //physics_apply_force(x, y, ldx, ldy);
+        //global.shoot = floor(random(20))+1;
+        if(global.shoot == 1){
+            instance_create(x, y, obj_enemyBullet);
+        }
+    }else if(distance_to_point(obj_player.x, obj_player.y) &lt;= 50){
+        //friction = 100;
+        //global.shoot = floor(random(20))+1;
+        if(global.shoot == 1){
+            instance_create(x, y, obj_enemyBullet);
+        }
+    }else{
+        friction = 100;
+    }
+}
+
+/*
+if(instance_exists(obj_player)){
+    if(distance_to_point(obj_player.x, obj_player.y) &lt;= 200 &amp;&amp; !collision_line(x, y, obj_player.x, obj_player.y, obj_wall, false, true)){
+        direction = point_direction(x, y, obj_player.x, obj_player.y)+90;
+        speed += 0.5;
+        if(speed &gt;= 5){
+            speed = 4;
+        }
+        global.shoot = floor(random(20))+1;
+        if(global.shoot == 1){
+            instance_create(x, y, obj_enemyBullet);
+        }
+        image_angle = point_direction(x, y, obj_player.x, obj_player.y);
+    }else{
+        image_angle += 5;
+    }
+}
 </string>
           </argument>
         </arguments>
