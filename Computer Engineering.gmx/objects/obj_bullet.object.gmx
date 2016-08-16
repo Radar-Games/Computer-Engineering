@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>/// Shooting
 
+direction = point_direction(x, y, mouse_x, mouse_y);
+speed = 40;
+
+/*
 phy_rotation = -point_direction(x, y, mouse_x, mouse_y+90);
 ldx = lengthdir_x(44, -phy_rotation+90);
 ldy = lengthdir_y(44, -phy_rotation+90);
@@ -89,7 +93,7 @@ instance_destroy();
       </action>
     </event>
   </events>
-  <PhysicsObject>-1</PhysicsObject>
+  <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
@@ -100,8 +104,5 @@ instance_destroy();
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>4,4</point>
-    <point>4,4</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>

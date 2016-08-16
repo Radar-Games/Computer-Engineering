@@ -51,6 +51,7 @@ global.shoot = 2;
           <argument>
             <kind>1</kind>
             <string>/// AI Basic
+/*
 if(instance_exists(obj_player)){
     if(distance_to_point(obj_player.x, obj_player.y) &lt;= 333 &amp;&amp; distance_to_point(obj_player.x, obj_player.y) &gt;=70){
         mp_potential_step(obj_player.x, obj_player.y, 4, false);
@@ -66,7 +67,7 @@ if(instance_exists(obj_player)){
     }
 }
 
-/*
+
 if(instance_exists(obj_player)){
     if(distance_to_point(obj_player.x, obj_player.y) &lt;= 200 &amp;&amp; distance_to_point(obj_player.x, obj_player.y) &gt;= 50 &amp;&amp; !collision_line(x, y, obj_player.x, obj_player.y, obj_wall, false, true)){
         phy_rotation = -point_direction(x, y, obj_player.x, obj_player.y)+90;
@@ -87,8 +88,7 @@ if(instance_exists(obj_player)){
         
     }
 }
-
-/*
+*/
 if(instance_exists(obj_player)){
     if(distance_to_point(obj_player.x, obj_player.y) &lt;= 200 &amp;&amp; !collision_line(x, y, obj_player.x, obj_player.y, obj_wall, false, true)){
         direction = point_direction(x, y, obj_player.x, obj_player.y)+90;

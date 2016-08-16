@@ -35,6 +35,10 @@ direction = point_direction(x, y, obj_player.x, obj_player.y)
 alarm[0] = 30;
 
 // Motion
+speed = 40;
+
+/*
+// Motion
 ldx = lengthdir_x(bullet_speed, direction);
 ldy = lengthdir_y(bullet_speed, direction);
 phy_rotation = -point_direction(phy_position_x, phy_position_y, mouse_x, mouse_y);
