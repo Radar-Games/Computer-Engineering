@@ -28,6 +28,39 @@
             <string>/// Setting Variables
 
 hp = 100;
+sprint = 0;
+gunClip = 10;
+gunAmmo = 99999999;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Reloading
+
+repeat(10){
+    if(gunClip &lt;= 9 &amp;&amp; gunAmmo &gt;= 1){
+        gunClip += 1;
+        gunAmmo -= 1;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -55,25 +88,101 @@ hp = 100;
 // Facing the Mouse
 
 direction = point_direction(x, y, mouse_x, mouse_y);
+image_angle = direction-90;
 
 // Up
 if(keyboard_check(ord('W'))){
-    y -= 4;
+    y -= 6+sprint;
 }
 // Down
 if(keyboard_check(ord('S'))){
-    y += 4;
+    y += 6+sprint;
 }
 // Left
 if(keyboard_check(ord('A'))){
-    x -= 4;
+    x -= 6+sprint;
 }
 // Right
 if(keyboard_check(ord('D'))){
-    x += 4;
+    x += 6+sprint;
 }
 
+// Sprinting
+if(keyboard_check(vk_shift)){
+    sprint = 2;
+}else{
+    sprint = 0;
+}
 
+// Shooting
+if(mouse_check_button_pressed(mb_left) &amp;&amp; gunClip &gt;= 1){
+    instance_create(x, y, obj_bullet);
+    gunClip -= 1;
+}
+
+// Reloading
+if(keyboard_check_pressed(ord('R'))){
+    alarm[0] = 5;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_bossBullet">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Taking Damage
+
+hp -= 20;
+
+if(hp &lt;= 0){
+    show_message('You Died');
+    room_restart();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_health">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Adding Health
+
+repeat(20){
+    if(hp &lt;= 99){
+        hp += 1;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -153,6 +262,7 @@ if(hp &lt;= 0){
 
 draw_self();
 draw_text(view_xview+10, view_yview+10, 'Health: ' + string(hp));
+draw_text(view_xview+10, view_yview+21, 'Clip: ' + string(gunClip))
 </string>
           </argument>
         </arguments>

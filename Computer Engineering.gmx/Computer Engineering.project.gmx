@@ -10,6 +10,9 @@
     <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_health</sprite>
+    <sprite>sprites\spr_boss</sprite>
+    <sprite>sprites\spr_bossBullet</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -19,8 +22,12 @@
     <object>objects\obj_enemy</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_enemyBullet</object>
+    <object>objects\obj_health</object>
+    <object>objects\obj_boss</object>
+    <object>objects\obj_bossBullet</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room1</room>
     <room>rooms\room0</room>
   </rooms>
   <help>
