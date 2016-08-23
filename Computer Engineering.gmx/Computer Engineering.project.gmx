@@ -13,6 +13,9 @@
     <sprite>sprites\spr_health</sprite>
     <sprite>sprites\spr_boss</sprite>
     <sprite>sprites\spr_bossBullet</sprite>
+    <sprite>sprites\spr_play</sprite>
+    <sprite>sprites\spr_level1</sprite>
+    <sprite>sprites\spr_levelControler</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -25,10 +28,14 @@
     <object>objects\obj_health</object>
     <object>objects\obj_boss</object>
     <object>objects\obj_bossBullet</object>
+    <object>objects\obj_playButton</object>
+    <object>objects\obj_level1</object>
+    <object>objects\obj_levelController</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room1</room>
-    <room>rooms\room0</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_levelSelect</room>
+    <room>rooms\rm_level1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
