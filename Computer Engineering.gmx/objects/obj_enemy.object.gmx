@@ -150,6 +150,7 @@ if(instance_exists(obj_player)){
 hp -= 10;
 
 if(hp &lt;= 0){
+    obj_levelController.Exp += 10;
     instance_destroy();
 }
 </string>
